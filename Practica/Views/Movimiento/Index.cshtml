@@ -1,0 +1,122 @@
+﻿@model Practica.Models.IndexViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div>
+    <form asp-action="Index" method="get">
+        <input type="text" name="tipoMovimiento" placeholder="Tipo de movimiento"/>
+        <input type="text" name="NumeroDocumento" placeholder="Numero de documento" />
+        <input type="text" name="fechainicio" placeholder="Fecha de inicio" />
+        <input type="text" name="fechafin" placeholder="Fecha de fin" />
+        <input type="submit" value="filtrar"/>
+    </form>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Movimientos.FirstOrDefault().COD_CIA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movimientos.FirstOrDefault().COMPANIA_VENTA_3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movimientos.FirstOrDefault().ALMACEN_VENTA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movimientos.FirstOrDefault().TIPO_DOCUMENTO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movimientos.FirstOrDefault().TIPO_MOVIMIENTO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movimientos.FirstOrDefault().NRO_DOCUMENTO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movimientos.FirstOrDefault().COD_ITEM_2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movimientos.FirstOrDefault().UM_ITEM_3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movimientos.FirstOrDefault().FECHA_TRANSACCION)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Movimientos)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COD_CIA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COMPANIA_VENTA_3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ALMACEN_VENTA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TIPO_DOCUMENTO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TIPO_MOVIMIENTO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NRO_DOCUMENTO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COD_ITEM_2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UM_ITEM_3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FECHA_TRANSACCION)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<!-- Table for UbicacionModel -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ubicaciones.FirstOrDefault().COD_CIA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ubicaciones.FirstOrDefault().TIPO_DOCUMENTO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ubicaciones.FirstOrDefault().NRO_DOCUMENTO)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Ubicaciones) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COD_CIA)
+                </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.TIPO_DOCUMENTO)
+                </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.NRO_DOCUMENTO)
+                </td>
+            
+            </tr>
+        }
+    </tbody>
+</table>
